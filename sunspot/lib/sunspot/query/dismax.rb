@@ -36,7 +36,7 @@ module Sunspot
         unless @boost_functions.empty?
           params[:bf] = @boost_functions.map do |boost_function|
             boost_function.to_s
-          end
+          end.join(" ")
         end
         if @minimum_match
           params[:mm] = @minimum_match
