@@ -19,7 +19,7 @@ module Sunspot
           :"hl.simple.post" => '@@@endhl@@@'
         }
         unless @fields.empty?
-          params[:"hl.fl"] = @fields.map { |field| field.indexed_name }
+          params[:"hl.fl"] = @fields.map { |field| field.indexed_name }.join(" ")
         end
         if max_snippets = @options[:max_snippets]
           params.merge!(make_params('snippets', max_snippets))
